@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
   <head>
-    <?php include 'navigation/head.html'?>
+    <?php include 'navigation/head.php'?>
   </head>
   <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
     <main>

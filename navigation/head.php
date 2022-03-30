@@ -50,3 +50,5 @@
 <!-- Main stylesheet and color file-->
 <link href="/all_things_anime/assets/css/style.css" rel="stylesheet">
 <link id="color-scheme" href="/all_things_anime/assets/css/colors/default.css" rel="stylesheet">
+
+<?php include($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/http-api/jikan.php') ?>
