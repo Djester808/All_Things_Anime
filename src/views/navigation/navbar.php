@@ -9,10 +9,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand navbar-icon" href="/all_things_anime/index.php">
+            <a class="navbar-brand navbar-icon" href="/all_things_anime/src/views/index.php">
                 <img src="/all_things_anime/assets/images/favicon.png" width="50" height="40" alt="">
             </a>
-            <a class="navbar-brand" href="/all_things_anime/index.php">All Things Anime!</a>
+            <a class="navbar-brand" href="/all_things_anime/src/views/index.php">All Things Anime!</a>
         </div>
         <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-right">

@@ -7,12 +7,12 @@
       echo ('<li class="clearfix">
                       <div class="widget-posts-image">
                         <a href="#">
-                          <img href="/all_things_anime/anime/view-anime.php?id=' . $anime["mal_id"] . '" src="' . $anime["images"]["jpg"]["image_url"] . '" alt="Post Thumbnail" />
+                          <img href="/all_things_anime/src/views/anime/view-anime.php?id=' . $anime["mal_id"] . '" src="' . $anime["images"]["jpg"]["image_url"] . '" alt="Post Thumbnail" />
                         </a>
                       </div>
                       <div class="widget-posts-body">
                         <div class="widget-posts-title">
-                          <a href="/all_things_anime/anime/view-anime.php?id=' . $anime["mal_id"] . '">' . $anime["title"] . '</a>
+                          <a href="/all_things_anime/src/views/anime/view-anime.php?id=' . $anime["mal_id"] . '">' . $anime["title"] . '</a>
                         </div>
                         <div class="widget-posts-meta">
                           <div class="col-md-6" style="padding-left:unset">

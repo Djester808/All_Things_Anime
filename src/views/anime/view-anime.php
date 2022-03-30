@@ -2,43 +2,64 @@
 <html lang="en-US" dir="ltr">
 
 <head>
-  <?php include($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/navigation/head.php') ?>
+  <?php include($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/src/views/navigation/head.php') ?>
 </head>
 
 <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+  <?php
+  $url = $_SERVER['REQUEST_URI'];
+  $parts = parse_url($url);
+  parse_str($parts['query'], $query);
+  $selectedAnime = getAnimeById($query['id']);
+  ?>
   <main>
     <div class="page-loader">
       <div class="loader">Loading...</div>
     </div>
-    <?php include($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/navigation/navbar.php') ?>
+    <?php include($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/src/views/navigation/navbar.php') ?>
+    <section class="home-section bg-dark-30" id="home" data-background="assets/images/section-5.jpg">
+      <div class="video-player" data-property="{videoURL:'<?php echo ($selectedAnime['trailer']['url']) ?>', showYTLogo:true, cc_load_policy:false, containment:'.home-section', startAt:02, mute:false, autoPlay:true, loop:false, opacity:1, showControls:false, showYTLogo:false, vol:25}"></div>
+      <div class="video-controls-box">
+        <div class="container">
+          <div class="video-controls">
+            <a class="fa fa-volume-up" id="video-volume" href="#">&nbsp;</a>
+            <a class="fa fa-pause" id="video-play" href="#">&nbsp;</a>
+            <a class="fa fa-youtube" id="youtube" href="<?php echo ($selectedAnime['trailer']['url']) ?>">&nbsp;</a>
+          </div>
+        </div>
+      </div>
+      <div class="titan-caption">
+        <div class="caption-content">
+          <div class="font-alt mb-40 titan-title-size-4">
+            <?php echo ($selectedAnime['title']) ?>
+          </div>
+        </div>
+      </div>
+    </section>
     <div class="main">
       <section class="module-small">
         <div class="container">
           <div class="row">
-            <?php include($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/navigation/sidebar/side-bar.php') ?>
+            <?php include($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/src/views/navigation/sidebar/side-bar.php') ?>
             <div class="col-sm-8 col-sm-offset-1">
               <div class="post">
                 <div class="post-thumbnail">
-                  <img src="assets/images/dashboard-img.png" alt="Blog Featured Image" />
                 </div>
                 <div class="post-header font-alt">
-                  <h1 class="post-title">Our trip to the Alps</h1>
-                  <div class="post-meta">By&nbsp;<a href="#">Mark Stone</a>| 23 November | 3 Comments | <a href="#">Photography, </a><a href="#">Web Design</a>
+                  <h1 class="post-title">
+                    <?php echo ($selectedAnime['title']) ?>
+                  </h1>
+                  <div class="post-meta">
+                    <?php echo ($selectedAnime['type']) ?> | 
+                    Episodes:  <?php echo ($selectedAnime['episodes']) ?> | 
+                    Aired: <?php echo (date("m-d-Y", strtotime($selectedAnime['aired']['from']))) ?> - <?php echo (date("m-d-Y", strtotime($selectedAnime['aired']['to']))) ?> |
+                    Rank: <?php echo ($selectedAnime['rank']) ?>
                   </div>
                 </div>
                 <div class="post-entry">
-                  <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.</p>
-                  <p>Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words.</p>
-                  <blockquote>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                  </blockquote>
-                  <p>If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages. It will be as simple as Occidental; in fact, it will be Occidental.</p>
-                  <ul>
-                    <li>The European languages are members of the same family.</li>
-                    <li>Their separate existence is a myth.</li>
-                    <li>For science, music, sport, etc, Europe uses the same vocabulary.</li>
-                  </ul>
-                  <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.</p>
+                  <p>
+                    <?php echo ($selectedAnime['synopsis']) ?>
+                  </p>
                 </div>
               </div>
               <div class="comments">
@@ -76,23 +97,6 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="comment-form">
-                <h4 class="comment-form-title font-alt">Add your comment</h4>
-                <form method="post">
-                  <div class="form-group">
-                    <label class="sr-only" for="name">Name</label>
-                    <input class="form-control" id="name" type="text" name="name" placeholder="Name" />
-                  </div>
-                  <div class="form-group">
-                    <label class="sr-only" for="email">Name</label>
-                    <input class="form-control" id="email" type="text" name="email" placeholder="E-mail" />
-                  </div>
-                  <div class="form-group">
-                    <textarea class="form-control" id="comment" name="comment" rows="4" placeholder="Comment"></textarea>
-                  </div>
-                  <button class="btn btn-round btn-d" type="submit">Post comment</button>
-                </form>
               </div>
             </div>
           </div>
@@ -160,8 +164,8 @@
     </div>
     <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
   </main>
-  <?php include($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/navigation/scripts.html') ?>
+  <?php include($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/src/views/navigation/scripts.html') ?>
 </body>
-<?php include($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/navigation/footer.html') ?>
+<?php include($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/src/views/navigation/footer.html') ?>
 
 </html>

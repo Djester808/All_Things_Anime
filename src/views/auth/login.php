@@ -2,7 +2,7 @@
 <html lang="en-US" dir="ltr">
 
 <head>
-  <?php include($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/navigation/head.html') ?>
+  <?php include($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/src/views/navigation/head.php') ?>
   <?php
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['login_user'] = true;
@@ -19,7 +19,7 @@
     <div class="page-loader">
       <div class="loader">Loading...</div>
     </div>
-    <?php include($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/navigation/navbar.php') ?>
+    <?php include($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/src/views/navigation/navbar.php') ?>
     <div class="main">
       <section class="module bg-dark-30 login-section" data-background="../assets/images/loginImg.png">
         <div class="container">
@@ -71,8 +71,8 @@
     </div>
     <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
   </main>
-  <?php include($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/navigation/scripts.html') ?>
+  <?php include($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/src/views/navigation/scripts.html') ?>
 </body>
-<?php include($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/navigation/footer.html') ?>
+<?php include($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/src/views/navigation/footer.html') ?>
 
 </html>
