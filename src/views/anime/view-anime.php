@@ -46,12 +46,14 @@
                 <div class="post-thumbnail">
                 </div>
                 <div class="post-header font-alt">
-                  <h1 class="post-title">
-                    <?php echo ($selectedAnime['title']) ?>
+                  <?php
+                  echo ('<h1 id=postTitle value="' . $selectedAnime['mal_id'] . '" class="post-title">');
+                  echo ($selectedAnime['title'])
+                  ?>
                   </h1>
                   <div class="post-meta">
-                    <?php echo ($selectedAnime['type']) ?> | 
-                    Episodes:  <?php echo ($selectedAnime['episodes']) ?> | 
+                    <?php echo ($selectedAnime['type']) ?> |
+                    Episodes: <?php echo ($selectedAnime['episodes']) ?> |
                     Aired: <?php echo (date("m-d-Y", strtotime($selectedAnime['aired']['from']))) ?> - <?php echo (date("m-d-Y", strtotime($selectedAnime['aired']['to']))) ?> |
                     Rank: <?php echo ($selectedAnime['rank']) ?>
                   </div>
@@ -62,38 +64,28 @@
                   </p>
                 </div>
               </div>
-              <div class="comments">
-                <h4 class="comment-title font-alt">There are 3 comments</h4>
-                <div class="comment clearfix">
-                  <div class="comment-avatar"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/ryanbattles/128.jpg" alt="avatar" /></div>
-                  <div class="comment-content clearfix">
-                    <div class="comment-author font-alt"><a href="#">John Doe</a></div>
-                    <div class="comment-body">
-                      <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.</p>
-                    </div>
-                    <div class="comment-meta font-alt">Today, 14:55 - <a href="#">Reply</a>
-                    </div>
-                  </div>
-                  <div class="comment clearfix">
-                    <div class="comment-avatar"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/draganbabic/128.jpg" alt="avatar" /></div>
-                    <div class="comment-content clearfix">
-                      <div class="comment-author font-alt"><a href="#">Mark Stone</a></div>
-                      <div class="comment-body">
-                        <p>Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.</p>
+              <div class="post">
+                <div class="post-entry">
+                  <div role="tabpanel">
+                    <ul class="nav nav-tabs font-alt" role="tablist">
+                      <li>
+                        <a href="#episodes" data-toggle="tab">
+                          <span class="icon-tools-2"></span>Episodes
+                        </a>
+                      </li>
+                      <li class="active">
+                        <a href="#support" data-toggle="tab">
+                          <span class="icon-tools-2"></span>support
+                        </a>
+                      </li>
+                    </ul>
+                    <div class="tab-content">
+                      <div class="tab-pane active" id="support">
+                        The European languages are members of the same family. Their separate existence is a myth.
                       </div>
-                      <div class="comment-meta font-alt">Today, 15:34 - <a href="#">Reply</a>
+                      <div class="tab-pane" id="episodes">
+                        <?php include('view-anime-tab.php')?>
                       </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="comment clearfix">
-                  <div class="comment-avatar"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/pixeliris/128.jpg" alt="avatar" /></div>
-                  <div class="comment-content clearfix">
-                    <div class="comment-author font-alt"><a href="#">Andy</a></div>
-                    <div class="comment-body">
-                      <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.</p>
-                    </div>
-                    <div class="comment-meta font-alt">Today, 14:59 - <a href="#">Reply</a>
                     </div>
                   </div>
                 </div>
@@ -102,65 +94,67 @@
           </div>
         </div>
       </section>
-      <div class="module-small bg-dark">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-3">
-              <div class="widget">
-                <h5 class="widget-title font-alt">About Titan</h5>
-                <p>The languages only differ in their grammar, their pronunciation and their most common words.</p>
-                <p>Phone: +1 234 567 89 10</p>Fax: +1 234 567 89 10
-                <p>Email:<a href="#">somecompany@example.com</a></p>
-              </div>
+    </div>
+    </section>
+    <div class="module-small bg-dark">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="widget">
+              <h5 class="widget-title font-alt">About Titan</h5>
+              <p>The languages only differ in their grammar, their pronunciation and their most common words.</p>
+              <p>Phone: +1 234 567 89 10</p>Fax: +1 234 567 89 10
+              <p>Email:<a href="#">somecompany@example.com</a></p>
             </div>
-            <div class="col-sm-3">
-              <div class="widget">
-                <h5 class="widget-title font-alt">Recent Comments</h5>
-                <ul class="icon-list">
-                  <li>Maria on <a href="#">Designer Desk Essentials</a></li>
-                  <li>John on <a href="#">Realistic Business Card Mockup</a></li>
-                  <li>Andy on <a href="#">Eco bag Mockup</a></li>
-                  <li>Jack on <a href="#">Bottle Mockup</a></li>
-                  <li>Mark on <a href="#">Our trip to the Alps</a></li>
-                </ul>
-              </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="widget">
+              <h5 class="widget-title font-alt">Recent Comments</h5>
+              <ul class="icon-list">
+                <li>Maria on <a href="#">Designer Desk Essentials</a></li>
+                <li>John on <a href="#">Realistic Business Card Mockup</a></li>
+                <li>Andy on <a href="#">Eco bag Mockup</a></li>
+                <li>Jack on <a href="#">Bottle Mockup</a></li>
+                <li>Mark on <a href="#">Our trip to the Alps</a></li>
+              </ul>
             </div>
-            <div class="col-sm-3">
-              <div class="widget">
-                <h5 class="widget-title font-alt">Blog Categories</h5>
-                <ul class="icon-list">
-                  <li><a href="#">Photography - 7</a></li>
-                  <li><a href="#">Web Design - 3</a></li>
-                  <li><a href="#">Illustration - 12</a></li>
-                  <li><a href="#">Marketing - 1</a></li>
-                  <li><a href="#">Wordpress - 16</a></li>
-                </ul>
-              </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="widget">
+              <h5 class="widget-title font-alt">Blog Categories</h5>
+              <ul class="icon-list">
+                <li><a href="#">Photography - 7</a></li>
+                <li><a href="#">Web Design - 3</a></li>
+                <li><a href="#">Illustration - 12</a></li>
+                <li><a href="#">Marketing - 1</a></li>
+                <li><a href="#">Wordpress - 16</a></li>
+              </ul>
             </div>
-            <div class="col-sm-3">
-              <div class="widget">
-                <h5 class="widget-title font-alt">Popular Posts</h5>
-                <ul class="widget-posts">
-                  <li class="clearfix">
-                    <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-1.jpg" alt="Post Thumbnail" /></a></div>
-                    <div class="widget-posts-body">
-                      <div class="widget-posts-title"><a href="#">Designer Desk Essentials</a></div>
-                      <div class="widget-posts-meta">23 january</div>
-                    </div>
-                  </li>
-                  <li class="clearfix">
-                    <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-2.jpg" alt="Post Thumbnail" /></a></div>
-                    <div class="widget-posts-body">
-                      <div class="widget-posts-title"><a href="#">Realistic Business Card Mockup</a></div>
-                      <div class="widget-posts-meta">15 February</div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="widget">
+              <h5 class="widget-title font-alt">Popular Posts</h5>
+              <ul class="widget-posts">
+                <li class="clearfix">
+                  <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-1.jpg" alt="Post Thumbnail" /></a></div>
+                  <div class="widget-posts-body">
+                    <div class="widget-posts-title"><a href="#">Designer Desk Essentials</a></div>
+                    <div class="widget-posts-meta">23 january</div>
+                  </div>
+                </li>
+                <li class="clearfix">
+                  <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-2.jpg" alt="Post Thumbnail" /></a></div>
+                  <div class="widget-posts-body">
+                    <div class="widget-posts-title"><a href="#">Realistic Business Card Mockup</a></div>
+                    <div class="widget-posts-meta">15 February</div>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
+    </div>
     </div>
     <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
   </main>
@@ -169,3 +163,12 @@
 <?php include($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/src/views/navigation/footer.html') ?>
 
 </html>
+
+<script>
+  function loadThis() {
+    var id  = $('#postTitle').attr('value')
+    $("#episodes").load("view-anime-tab.php", {
+      id: id,
+    });
+  }
+</script>

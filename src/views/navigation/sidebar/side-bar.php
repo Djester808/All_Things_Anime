@@ -10,8 +10,8 @@
         if ($query['id'] != null) {
           $selectedAnimeImgs = getAnimeImgs($query['id']);
           shuffle($selectedAnimeImgs);
-          foreach($selectedAnimeImgs as $key => $img ) {
-            echo('<li>
+          foreach ($selectedAnimeImgs as $key => $img) {
+            echo ('<li>
               <img class="center-block" src="' . $img['webp']['large_image_url'] . '" />
             </li>');
           }
@@ -21,11 +21,7 @@
     </div>
   </div>
   <?php include 'top-five.php' ?>
-  <div class="widget">
-    <h5 class="widget-title font-alt">Tag</h5>
-    <div class="tags font-serif"><a href="#" rel="tag">Blog</a><a href="#" rel="tag">Photo</a><a href="#" rel="tag">Video</a><a href="#" rel="tag">Image</a><a href="#" rel="tag">Minimal</a><a href="#" rel="tag">Post</a><a href="#" rel="tag">Theme</a><a href="#" rel="tag">Ideas</a><a href="#" rel="tag">Tags</a><a href="#" rel="tag">Bootstrap</a><a href="#" rel="tag">Popular</a><a href="#" rel="tag">English</a>
-    </div>
-  </div>
+  <?php include 'tags.php' ?>
   <div class="widget">
     <h5 class="widget-title font-alt">Text</h5>The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators.
   </div>
