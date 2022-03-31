@@ -84,7 +84,7 @@
                         The European languages are members of the same family. Their separate existence is a myth.
                       </div>
                       <div class="tab-pane" id="episodes">
-                        <?php include('view-anime-tab.php') ?>
+                        <?php include('episodes.php') ?>
                       </div>
                     </div>
                   </div>
