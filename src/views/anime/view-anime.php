@@ -68,23 +68,23 @@
                 <div class="post-entry">
                   <div role="tabpanel">
                     <ul class="nav nav-tabs font-alt" role="tablist">
+                    <li class="active">
+                        <a href="#characters" data-toggle="tab">
+                          <span class="icon-tools-2"></span>Characters
+                        </a>
+                      </li>
                       <li>
                         <a href="#episodes" data-toggle="tab">
                           <span class="icon-tools-2"></span>Episodes
                         </a>
                       </li>
-                      <li class="active">
-                        <a href="#support" data-toggle="tab">
-                          <span class="icon-tools-2"></span>support
-                        </a>
-                      </li>
                     </ul>
                     <div class="tab-content">
-                      <div class="tab-pane active" id="support">
+                      <div class="tab-pane active" id="character">
                         The European languages are members of the same family. Their separate existence is a myth.
                       </div>
                       <div class="tab-pane" id="episodes">
-                        <?php include('view-anime-tab.php')?>
+                        <?php include('view-anime-tab.php') ?>
                       </div>
                     </div>
                   </div>
@@ -166,7 +166,7 @@
 
 <script>
   function loadThis() {
-    var id  = $('#postTitle').attr('value')
+    var id = $('#postTitle').attr('value')
     $("#episodes").load("view-anime-tab.php", {
       id: id,
     });

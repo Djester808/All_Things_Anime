@@ -32,7 +32,8 @@
             }
         }
         ?>
-        <div class="container pagination font-alt">
+    </div>
+    <div class="pagination font-alt" style="width: 100%; text-align: center;">
             <a href="#">
                 <i class="fa fa-angle-left"></i>
             </a>
@@ -49,5 +50,4 @@
                 <i class="fa fa-angle-right"></i>
             </a>
         </div>
-    </div>
 </section>
