@@ -1346,6 +1346,12 @@ General Styles - Owlcarousel
   padding-right: 10px;
 }
 
+.nav-item-custom {
+  color: black !important;
+  font-weight: 400;
+  font-size: 22px;
+}
+
 /* Navbar search
 
 .dropdown-search {
@@ -2649,6 +2655,23 @@ Google map
 .showcase-index {
   background-color: RGB(215,21,82);
   background-position: inherit;
+}
+
+/*--------------------------------------------------------------
+	Dashboard Page
+--------------------------------------------------------------*/
+
+.post-entry .owl-carousel .owl-stage-outer {
+  height: 265px;
+}
+
+.post-header-custom {
+  border-radius: 5px 50px 30px 15px;
+  background-color: RGB(215,21,82); 
+}
+
+.post-title-custom {
+  color:white;
 }
 
 /*--------------------------------------------------------------

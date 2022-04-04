@@ -1,24 +1,75 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
-  <head>
-  <?php include ($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/navigation/head.html')?>
-  </head>
-  <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
-    <main>
-      <div class="page-loader">
-        <div class="loader">Loading...</div>
+
+<head>
+  <?php include($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/src/views/navigation/head.php') ?>
+</head>
+
+<body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+  <main>
+    <div class="container">
+
+    </div>
+    <div class="owl-carousel owl-theme">
+      <div class="item">
+        <h4>1</h4>
       </div>
-      <section class="home-section home-parallax home-fade home-full-height bg-dark bg-dark-30" id="home" data-background="assets/images/section-4.jpg">
-        <div class="titan-caption">
-          <div class="caption-content">
-            <div class="font-alt mb-30 titan-title-size-4">Error 404</div>
-            <div class="font-alt">The requested URL was not found on this server.<br/>That is all we know.
-            </div>
-            <div class="font-alt mt-30"><a class="btn btn-border-w btn-round" href="../index.php">Back to home page</a></div>
-          </div>
-        </div>
-      </section>
-    </main>
-    <?php include ($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/navigation/scripts.html')?>
-  </body>
+      <div class="item">
+        <h4>2</h4>
+      </div>
+      <div class="item">
+        <h4>3</h4>
+      </div>
+      <div class="item">
+        <h4>4</h4>
+      </div>
+      <div class="item">
+        <h4>5</h4>
+      </div>
+      <div class="item">
+        <h4>6</h4>
+      </div>
+      <div class="item">
+        <h4>7</h4>
+      </div>
+      <div class="item">
+        <h4>8</h4>
+      </div>
+      <div class="item">
+        <h4>9</h4>
+      </div>
+      <div class="item">
+        <h4>10</h4>
+      </div>
+      <div class="item">
+        <h4>11</h4>
+      </div>
+      <div class="item">
+        <h4>12</h4>
+      </div>
+    </div>
+  </main>
+  <?php include($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/src/views/navigation/scripts.html') ?>
+</body>
+
 </html>
+
+<script>
+  $('.owl-carousel').owlCarousel({
+    rtl: true,
+    loop: true,
+    margin: 10,
+    nav: true,
+    responsive: {
+      0: {
+        items: 1
+      },
+      600: {
+        items: 3
+      },
+      1000: {
+        items: 5
+      }
+    }
+  })
+</script>

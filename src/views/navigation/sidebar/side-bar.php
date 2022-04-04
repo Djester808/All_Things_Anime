@@ -4,16 +4,18 @@
     <div class="post-images-slider home-parallax">
       <ul class="slides">
         <?php
-        $url = $_SERVER['REQUEST_URI'];
-        $parts = parse_url($url);
-        parse_str($parts['query'], $query);
-        if ($query['id'] != null) {
-          $selectedAnimeImgs = getAnimeImgs($query['id']);
-          shuffle($selectedAnimeImgs);
-          foreach ($selectedAnimeImgs as $key => $img) {
-            echo ('<li>
-              <img class="center-block" src="' . $img['webp']['large_image_url'] . '" />
-            </li>');
+        if (stripos($_SERVER['REQUEST_URI'], 'view-anime.php')) {
+          $url = $_SERVER['REQUEST_URI'];
+          $parts = parse_url($url);
+          parse_str($parts['query'], $query);
+          if ($query['id'] != null) {
+            $selectedAnimeImgs = getAnimeImgs($query['id']);
+            shuffle($selectedAnimeImgs);
+            foreach ($selectedAnimeImgs as $key => $img) {
+              echo ('<li>
+                <img class="center-block" src="' . $img['webp']['large_image_url'] . '" />
+              </li>');
+            }
           }
         }
         ?>
@@ -21,7 +23,11 @@
     </div>
   </div>
   <?php include 'top-five.php' ?>
-  <?php include 'tags.php' ?>
+  <?php
+  if (stripos($_SERVER['REQUEST_URI'], 'view-anime.php')) {
+    include 'tags.php';
+  }
+  ?>
   <div class="widget">
     <h5 class="widget-title font-alt">Text</h5>The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators.
   </div>

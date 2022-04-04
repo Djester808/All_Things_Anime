@@ -7,6 +7,10 @@
             echo ('<a href="#" rel="tag">' . $demo['name'] . '</a>');
         }
 
+        foreach ($selectedAnime['genres'] as $genre) {
+            echo ('<a href="#" rel="tag">' . $genre['name'] . '</a>');
+        }
+
         foreach ($selectedAnime['themes'] as $theme) {
             echo ('<a href="#" rel="tag">' . $theme['name'] . '</a>');
         }

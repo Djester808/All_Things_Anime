@@ -43,8 +43,8 @@
 <link href="/all_things_anime/assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
 <link href="/all_things_anime/assets/lib/et-line-font/et-line-font.css" rel="stylesheet">
 <link href="/all_things_anime/assets/lib/flexslider/flexslider.css" rel="stylesheet">
-<link href="/all_things_anime/assets/lib/owl.carousel/dist//all_things_anime/assets/owl.carousel.min.css" rel="stylesheet">
-<link href="/all_things_anime/assets/lib/owl.carousel/dist//all_things_anime/assets/owl.theme.default.min.css" rel="stylesheet">
+<link href="/all_things_anime/assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
+<link href="/all_things_anime/assets/lib/owl.carousel/dist/assets/owl.theme.default.min.css" rel="stylesheet">
 <link href="/all_things_anime/assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
 <link href="/all_things_anime/assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet">
 <!-- Main stylesheet and color file-->

@@ -15,17 +15,35 @@
             <a class="navbar-brand" href="/all_things_anime/src/views/index.php">All Things Anime!</a>
         </div>
         <div class="collapse navbar-collapse" id="custom-collapse">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle nav-item-custom" href="#" data-toggle="dropdown">Anime</a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/all_things_anime/src/views/anime/filter-anime-by-letter.php">Explore Anime</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle nav-item-custom" href="#" data-toggle="dropdown">Manga</a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">Explore Anime</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <span class="icon-gears dropdown-toggle" href="#" data-toggle="dropdown" aria-hidden="true"></span>
+                    <span class="nav-item-custom icon-gears dropdown-toggle" href="#" data-toggle="dropdown" aria-hidden="true"></span>
                     <ul class="dropdown-menu dropdown-menu-dark">
                         <li>
                             <?php
-                                if (!isset($_SESSION['login_user'])) {
-                                    echo('<a href="auth/login.php">Login</a>');
-                                } else {
-                                    echo('<a href="#">Profile</a>');
-                                }
+                            if (!isset($_SESSION['login_user'])) {
+                                echo ('<a href="auth/login.php">Login</a>');
+                            } else {
+                                echo ('<a href="#">Profile</a>');
+                            }
                             ?>
                         </li>
                     </ul>

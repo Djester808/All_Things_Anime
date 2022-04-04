@@ -1,12 +1,15 @@
-<section class="module">
+<?php include($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/src/http-api/jikan.php') ?>
+
+<section class="module" style="padding-top: 35px;">
     <div class="row multi-columns-row post-columns">
         <?php
-        $animeEpisodes = getAnimeEpisodeList($query['id']);
+        $id = $_REQUEST['id'];
+        $animeEpisodes = getAnimeEpisodeList($id);
         $index = 0;
         $count = count($animeEpisodes);
 
         foreach ($animeEpisodes as $episode) {
-            $episodeData = getAnimeEpisodeDetails($query['id'], $episode['mal_id']);
+            $episodeData = getAnimeEpisodeDetails($id, $episode['mal_id']);
             echo ('<div class="col-md-6">
                 <div class="post">
                     <div class="post-header font-alt">
