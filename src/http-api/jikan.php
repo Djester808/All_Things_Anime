@@ -23,18 +23,7 @@
         return json_decode($response, true)['data'];
     }
 
-    function getAnimeCharacterList($id): mixed {
-        $url = 'https://api.jikan.moe/v4/anime/' . $id . '/characters';
-        $response = file_get_contents($url);
-        return json_decode($response, true)['data'];
-    }
-
-    function getAnimeEpisodeList($id): mixed {
-        $url = 'https://api.jikan.moe/v4/anime/' . $id . '/episodes';
-        $response = file_get_contents($url);
-        return json_decode($response, true)['data'];
-    }
-
+    /**TODO: Replace this call with an ajax call. */
     function getAnimeEpisodeDetails($animeId, $episodeId): mixed {
         $url = 'https://api.jikan.moe/v4/anime/' . $animeId . '/episodes' . '/' . $episodeId;
         $response = file_get_contents($url);

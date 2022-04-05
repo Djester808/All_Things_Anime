@@ -33,7 +33,7 @@
             </div>
             <div class="col-sm-6 col-md-4 col-lg-3">
               <div class="callout-btn-box">
-                <a class="btn btn-border-w btn-circle" href="../dashboard.php">Get Started!</a>
+                <a class="btn btn-border-w btn-circle" href="dashboard/dashboard.php">Get Started!</a>
               </div>
             </div>
           </div>

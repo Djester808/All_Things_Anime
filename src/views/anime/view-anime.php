@@ -6,19 +6,17 @@
 </head>
 
 <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
-  <?php
-  $url = $_SERVER['REQUEST_URI'];
-  $parts = parse_url($url);
-  parse_str($parts['query'], $query);
-  $selectedAnime = getAnimeById($query['id']);
-  ?>
+  <?php $url = $_SERVER['REQUEST_URI']; ?>
+  <?php $parts = parse_url($url); ?>1
+  <?php parse_str($parts['query'], $query); ?>
+  <?php $selectedAnime = getAnimeById($query['id']); ?>
   <main>
     <div class="page-loader">
       <div class="loader">Loading...</div>
     </div>
     <?php include($_SERVER["DOCUMENT_ROOT"] . '/all_things_anime/src/views/navigation/navbar.php') ?>
     <section class="home-section bg-dark-30" id="home" data-background="assets/images/section-5.jpg">
-      <div class="video-player" data-property="{videoURL:'<?php echo ($selectedAnime['trailer']['url']) ?>', showYTLogo:true, cc_load_policy:false, containment:'.home-section', startAt:02, mute:false, autoPlay:true, loop:false, opacity:1, showControls:false, showYTLogo:false, vol:25}"></div>
+      <div class="video-player" data-property="{videoURL:'<?php echo ($selectedAnime['trailer']['url']) ?>', showYTLogo:true, cc_load_policy:false, containment:'.home-section', startAt:02, mute:false, autoPlay:false, loop:false, opacity:1, showControls:false, showYTLogo:false, vol:25}"></div>
       <div class="video-controls-box">
         <div class="container">
           <div class="video-controls">
@@ -46,10 +44,8 @@
                 <div class="post-thumbnail">
                 </div>
                 <div class="post-header font-alt">
-                  <?php
-                  echo ('<h1 id=postTitle value="' . $selectedAnime['mal_id'] . '" class="post-title">');
-                  echo ($selectedAnime['title'])
-                  ?>
+                  <h1 id=postTitle value="<?php echo ($selectedAnime['mal_id']); ?>" class="post-title">
+                    <?php echo ($selectedAnime['title']); ?>
                   </h1>
                   <div class="post-meta">
                     <?php echo ($selectedAnime['type']) ?> |
@@ -69,18 +65,18 @@
                   <div role="tabpanel">
                     <ul class="nav nav-tabs font-alt" role="tablist">
                       <li class="active">
-                        <a href="#tabContent" data-toggle="tab" onloadeddata="loadTab('characters')"  onclick="loadTab('characters')">
+                        <a href="#animeContent" data-toggle="tab" onclick="insertCharacters(<?php echo($selectedAnime['mal_id']); ?>)">
                           <span class="icon-tools-2"></span>Characters
                         </a>
                       </li>
                       <li>
-                        <a href="#tabContent" data-toggle="tab" onclick="loadTab('episodes')">
+                        <a href="#animeContent" data-toggle="tab" onclick="insertEpisodes(<?php echo($selectedAnime['mal_id']); ?>)">
                           <span class="icon-tools-2"></span>Episodes
                         </a>
                       </li>
                     </ul>
                     <div class="tab-content">
-                      <div class="tab-pane" id="tabContent"></div>
+                      <div class="tab-pane active" id="animeContent"></div>
                     </div>
                   </div>
                 </div>
@@ -160,10 +156,31 @@
 </html>
 
 <script>
-  function loadTab(tabName) {
-    var id = $('#postTitle').attr('value')
-    $("#tabContent").load(tabName + ".php", {
-      id: id,
+  const animeTab = document.getElementById("animeContent");
+  while (animeTab.firstChild) {
+    animeTab.removeChild(animeTab.lastChild);
+  }
+
+  insertCharacters(<?php echo($query['id']) ?>);
+
+  function insertCharacters(animeId) {
+    jQuery(function($) {
+      $.getJSON("https://api.jikan.moe/v4/anime/" + animeId + "/characters", function(response) {
+        $("#animeContent").load("characters.php", {
+          response: JSON.stringify(response)
+        });
+      });
+    });
+  }
+
+  function insertEpisodes(animeId) {
+    jQuery(function($) {
+      $.getJSON("https://api.jikan.moe/v4/anime/" + animeId + "/episodes", function(response) {
+        $("#animeContent").load("episodes.php", {
+          response: JSON.stringify(response),
+          id: animeId
+        });
+      });
     });
   }
 </script>

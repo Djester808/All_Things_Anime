@@ -1,3 +1,8 @@
+<?php if (isset($_REQUEST['letter']) && isset($_REQUEST['tab'])) : ?>
+    <?php $selectedLetter = $_REQUEST['letter'] ?>
+    <?php $tab = $_REQUEST['tab'] ?>
+<?php endif ?>
+
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
 
@@ -39,8 +44,13 @@
                                 <ul class="nav nav-tabs font-alt" role="tablist">
                                     <?php $alphas = array_merge(range('A', 'Z')); ?>
                                     <?php foreach ($alphas as $alphas => $letter) : ?>
-                                        <?php $active = $letter == 'A' ? 'active' : ''; ?>
-                                        <li class="<?php echo($active) ?>">
+                                        <?php $active; ?>
+                                        <?php if (isset($selectedLetter)) : ?>
+                                            <?php $active = $letter == $selectedLetter ? 'active' : ''; ?>
+                                        <?php else : ?>
+                                            <?php $active = $letter == 'A' ? 'active' : ''; ?>
+                                        <?php endif ?>
+                                        <li class="<?php echo ($active) ?>">
                                             <a href="#animeList" data-toggle="tab" value="<?php echo ($letter) ?>" onclick="getLetterContent('<?php echo ($letter) ?>')">
                                                 <?php echo ($letter) ?>
                                             </a>
@@ -53,6 +63,7 @@
                             </div>
                         </div>
                     </div>
+                    <div id="letterPagination" class="pagination font-alt" style="width: 100%; text-align: center;"> </div>
                 </div>
             </section>
         </div>
@@ -65,13 +76,14 @@
 </html>
 
 <script>
-    getLetterContent('A');
+    getLetterContent('<?php echo($selectedLetter) ?>');
+
     function getLetterContent(value) {
         const animeTab = document.getElementById("animeList");
         while (animeTab.firstChild) {
             animeTab.removeChild(animeTab.lastChild);
         }
-        
+
         jQuery(function($) {
             $.getJSON('https://api.jikan.moe/v4/anime?letter=' + value, function(response) {
                 const requests = response.data.map(val => new Promise((resolve, reject) => {
@@ -88,6 +100,12 @@
                     responses.forEach(html => {
                         $("#animeList").append(html);
                     });
+                });
+
+
+                $("#letterPagination").load("/all_things_anime/src/views/navigation/pagination.php", {
+                    count: response.pagination.last_visible_page,
+                    url: '/all_things_anime/src/views/anime/filter-anime-by-letter.php?letter=' + value
                 });
             });
         });

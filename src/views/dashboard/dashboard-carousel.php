@@ -8,10 +8,10 @@
     <?php $result = $result->data; ?>
     <?php foreach ($result as $result => $content) : ?>
         <div class="item">
-            <a href="/all_things_anime/src/views/anime/view-anime.php?id='<?php echo ($content->mal_id) ?>'">
+            <a href="/all_things_anime/src/views/anime/view-anime.php?id=<?php echo ($content->mal_id) ?>">
                 <img src="<?php echo ($content->images->jpg->image_url) ?>" alt="Blog Featured Image" />
             </a>
-            <a href="/all_things_anime/src/views/anime/view-anime.php?id='<?php echo ($content->mal_id) ?>'">
+            <a href="/all_things_anime/src/views/anime/view-anime.php?id=<?php echo ($content->mal_id) ?>">
                 <p style="text-align:center;"> <?php echo ($content->title) ?> </p>
             </a>
         </div>

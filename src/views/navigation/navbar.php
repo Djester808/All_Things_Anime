@@ -20,7 +20,7 @@
                     <a class="dropdown-toggle nav-item-custom" href="#" data-toggle="dropdown">Anime</a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="/all_things_anime/src/views/anime/filter-anime-by-letter.php">Explore Anime</a>
+                            <a href="/all_things_anime/src/views/anime/filter-anime-by-letter.php?letter=A&tab=1">Explore Anime</a>
                         </li>
                     </ul>
                 </li>
